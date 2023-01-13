@@ -1,3 +1,4 @@
+//variables for game logic
 const score = document.getElementById("score");
 const wrongLetters = document.getElementById("wrongLetters");
 const guessesLeft = document.getElementById("guessesLeft");
@@ -21,4 +22,4 @@ const nextWord = document.getElementById("nextWord");
 const gameOverBox = document.getElementById("gameOverBox");
 const numberOfChancesLeft = document.getElementById("numberOfChancesLeft");
 
-
+//load game upon clicking the load button
