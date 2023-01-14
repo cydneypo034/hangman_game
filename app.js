@@ -12,12 +12,14 @@ var underScores; //number of spaces in word
 var chances; //how many chances are left
 var correctGuesses; //correct guesses made
 
+var playAgain = document.getElementById("reset");
+
 
 
 //cereals, candy, and ice cream categories
 function selectCategory() {
     if(choiceCategory === choiceWords[0]){
-        category.innerHTML = "Ice Cream";
+        category.innerHTML = "Ice Cream Flavors";
     } else if (choiceCategory === choiceWords[1]){
         category.innerHTML = "Candy";
     } else if (choiceCategory === choiceWords[2]){
@@ -34,7 +36,7 @@ function playGame() {
     'oreo cheesecake', 
     'chocolate chip cookie dough'],
     
-    ['popsicle',
+    ['hershey kisses',
     'lemon gumdrops', 
     'sour patch kids', 
     'lollipop',
@@ -55,6 +57,12 @@ function playGame() {
 }
 
 playGame();
+
+playAgain.onclick =
+function() {
+    playGame();
+}
+
 
 // function playTheGame() {
 //     words = Math.floor(Math.random()) * words.length;
