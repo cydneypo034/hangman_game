@@ -12,6 +12,7 @@ const underScores = document.getElementById("underScores");
 
 const keyboardLetters = [];
 const playGame = document.getElementById("playGame");
+const loadGame = document.getElementById("loadGame");
 const startOver = document.getElementById("startOver");
 
 const winnerBox = document.getElementById("winnerBox");
@@ -23,7 +24,7 @@ const numberOfChancesLeft = document.getElementById("numberOfChancesLeft");
 
 //load game upon clicking the load button
 
-function playGame() {
+function loadGame() {
 
 }
 //Have player click on play to start game
