@@ -11,7 +11,9 @@ const word = document.getElementById("word");
 const underScores = document.getElementById("underScores");
 
 const keyboardLetters = [];
-const playGame = document.getElementById("playGame");
+// const playGame = document.getElementById("playGame");
+var playGame;
+var start;
 const loadGame = document.getElementById("loadGame");
 const startOver = document.getElementById("startOver");
 
@@ -25,16 +27,28 @@ const numberOfChancesLeft = document.getElementById("numberOfChancesLeft");
 //load game upon clicking the load button
 
 function playGame() {
-    word = Math.floor(Math.random()) * words.length;
+    word = words[Math.floor(Math.random() * words.length)]
     underScores = word.replace(/_/g, ' ');
     console.log(word);
     console.log(underScores);
 }
 
-startOver.onclick =
-function() {
-    playGame();
+function start(){
+    startOver.onclick = playGame();
 }
+
+start();
+// function playTheGame() {
+//     words = Math.floor(Math.random()) * words.length;
+//     underScores = word.replace(/_/g, ' ');
+//     console.log(word);
+//     console.log(underScores);
+// }
+
+// startOver.onclick =
+// function() {
+//     playTheGame();
+// }
 
 
 //Have player click on play to start game
