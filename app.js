@@ -14,9 +14,8 @@ var correctGuesses; //correct guesses made
 
 var playAgain = document.getElementById("reset");
 
-
-
 //cereals, candy, and ice cream categories
+//if chosen category is any word from a certain array, have corect category display in html
 function selectCategory() {
     if(choiceCategory === choiceWords[0]){
         category.innerHTML = "Ice Cream Flavors";
@@ -27,7 +26,8 @@ function selectCategory() {
     }
 }
 
-//play the game
+//this function is the play game logic for when a player starts the game
+//when the random word is picked from the chosen category, replace the letters with underscores 
 function playGame() {
     choiceWords = [
     ['vanilla with sprinkles', 
@@ -50,9 +50,9 @@ function playGame() {
     ];
     choiceCategory = choiceWords[Math.floor(Math.random() * choiceWords.length)];
     chosenChoiceWord = choiceCategory[Math.floor(Math.random() * choiceCategory.length)]
-    underScores = chosenChoiceWord.replace(/_/g, ' ');
+    chosenChoiceWord = chosenChoiceWord.replace(/_/g, ' ');
     // console.log(chosenChoiceWord);
-    console.log(underScores);
+    console.log(chosenChoiceWord);
     selectCategory();
     chances = 10;
     storedGuesses = [];
@@ -62,27 +62,13 @@ function playGame() {
 
 playGame();
 
+//Have player click play again to start a new game and activate playGame function for a new word
 playAgain.onclick =
 function() {
     playGame();
 }
 
 
-// function playTheGame() {
-//     words = Math.floor(Math.random()) * words.length;
-//     underScores = word.replace(/_/g, ' ');
-//     console.log(word);
-//     console.log(underScores);
-// }
-
-// startOver.onclick =
-// function() {
-//     playTheGame();
-// }
-
-
-//Have player click on play to start game
-//First word loads
 //The word needs to be loaded as just underscores
 //Player should have a keyboard to show the letters to click on and the letters should display the correct ones in the correct spaces
 //When the correct letter is clicked on, the letter should replace the underscores, stay in place, and a bell sound should be made
