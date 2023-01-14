@@ -1,4 +1,7 @@
 //variables for game logic
+var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+        'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+        't', 'u', 'v', 'w', 'x', 'y', 'z']; //letters for the keyboard
 var score; //score for players
 var choiceWords; //array of words
 var choiceCategory; // selected category of words
@@ -44,7 +47,7 @@ function playGame() {
     choiceCategory = choiceWords[Math.floor(Math.random() * choiceWords.length)];
     chosenChoiceWord = choiceCategory[Math.floor(Math.random() * choiceCategory.length)]
     underScores = chosenChoiceWord.replace(/_/g, ' ');
-    console.log(chosenChoiceWord);
+    // console.log(chosenChoiceWord);
     console.log(underScores);
     selectCategory();
 }
