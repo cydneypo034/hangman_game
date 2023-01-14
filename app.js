@@ -41,9 +41,10 @@ function playGame() {
     'cinnamon toast crunch',
      'coco puffs']
     ];
-    choiceCategory = choiceWords[Math.floor(Math.random() * choiceWords.length)]
-    underScores = choiceWords.replace(/_/g, ' ');
-    console.log(choiceWords);
+    choiceCategory = choiceWords[Math.floor(Math.random() * choiceWords.length)];
+    chosenChoiceWord = choiceCategory[Math.floor(Math.random() * choiceCategory.length)]
+    underScores = chosenChoiceWord.replace(/_/g, ' ');
+    console.log(chosenChoiceWord);
     console.log(underScores);
     selectCategory();
 }
