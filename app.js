@@ -24,9 +24,13 @@ const numberOfChancesLeft = document.getElementById("numberOfChancesLeft");
 
 //load game upon clicking the load button
 
-function loadGame() {
-
+function playGame() {
+    word = Math.floor(Math.random()) * words.length;
+    word = word.replace()
 }
+
+playGame();
+
 //Have player click on play to start game
 //First word loads
 //The word needs to be loaded as just underscores
