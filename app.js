@@ -54,6 +54,10 @@ function playGame() {
     // console.log(chosenChoiceWord);
     console.log(underScores);
     selectCategory();
+    chances = 10;
+    storedGuesses = [];
+    correctGuesses = 0;
+    guess = 0;
 }
 
 playGame();
