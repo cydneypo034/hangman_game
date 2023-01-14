@@ -10,6 +10,16 @@ var chances; //how many chances are left
 var correctGuesses; //correct guesses made
 
 
+function selectCategory() {
+    if(choiceCategory === choiceWords[0]){
+        category.innerHTML = "Ice Cream";
+    } else if (choiceCategory === choiceWords[1]){
+        category.innerHTML = "Candy";
+    } else if (choiceCategory === choiceWords[2]){
+        category.innerHTML = "Cereals";
+    }
+}
+
 //cereals, candy, and ice cream
 function playGame() {
     choiceWords = [
@@ -35,7 +45,11 @@ function playGame() {
     underScores = choiceWords.replace(/_/g, ' ');
     console.log(choiceWords);
     console.log(underScores);
+    selectCategory();
 }
+
+playGame();
+
 // function playTheGame() {
 //     words = Math.floor(Math.random()) * words.length;
 //     underScores = word.replace(/_/g, ' ');
