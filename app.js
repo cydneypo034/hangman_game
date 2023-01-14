@@ -26,10 +26,16 @@ const numberOfChancesLeft = document.getElementById("numberOfChancesLeft");
 
 function playGame() {
     word = Math.floor(Math.random()) * words.length;
-    word = word.replace()
+    underScores = word.replace(/_/g, ' ');
+    console.log(word);
+    console.log(underScores);
 }
 
-playGame();
+startOver.onclick =
+function() {
+    playGame();
+}
+
 
 //Have player click on play to start game
 //First word loads
