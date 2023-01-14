@@ -12,7 +12,6 @@ const underScores = document.getElementById("underScores");
 
 const keyboardLetters = [];
 const playGame = document.getElementById("playGame");
-const loadGame = document.getElementById("loadGame");
 const startOver = document.getElementById("startOver");
 
 const winnerBox = document.getElementById("winnerBox");
@@ -24,12 +23,11 @@ const numberOfChancesLeft = document.getElementById("numberOfChancesLeft");
 
 //load game upon clicking the load button
 
-function loadGame() {
-    
+function playGame() {
+
 }
 //Have player click on play to start game
 //First word loads
-//Hint needs to match the word given
 //The word needs to be loaded as just underscores
 //Player should have a keyboard to show the letters to click on and the letters should display the correct ones in the correct spaces
 //When the correct letter is clicked on, the letter should replace the underscores, stay in place, and a bell sound should be made
