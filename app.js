@@ -13,6 +13,8 @@ var chances; //how many chances are left
 var correctGuesses; //correct guesses made
 
 
+
+//cereals, candy, and ice cream categories
 function selectCategory() {
     if(choiceCategory === choiceWords[0]){
         category.innerHTML = "Ice Cream";
@@ -23,7 +25,7 @@ function selectCategory() {
     }
 }
 
-//cereals, candy, and ice cream
+//play the game
 function playGame() {
     choiceWords = [
     ['vanilla with sprinkles', 
