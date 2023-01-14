@@ -2,15 +2,13 @@
 const score = document.getElementById("score");
 const wrongLetters = document.getElementById("wrongLetters");
 const guessesLeft = document.getElementById("guessesLeft");
-const words = ['chocolate', 'vanilla', 'strawberry', 'cookie dough', 'mint chocolate chip', 'pistachio', 'cookies and cream', 
-'birthday cake', 'buttered pecan', 'neapolitan'];
-const hints = ['Made from a brown bean plant and enjoyed hot or cold',
-'Made from a bean and great with Applie pie', '', '', '', '', '', '', ''];
+const words = ['vanilla with sprinkles', 'glazed doughnut', 'birthday cake', 'strawberry shortcake', 'oreo cheesecake', 'chocolate chip cookie dough', 'banana cream pie', 
+'apple strudel', 'banana split', 'fudge brownie', 'lemon gumdrops', 'sour patch kids', 'fruit loops', 'fruity pebbles', 'lollipop', 'frosted flakes', 'cinnamon toast crunch',
+'reeses pieces', 'coco puffs'];
 const correctWordSound = document.getElementById("correctWordSound");
 const incorrectWordSound = document.getElementById("incorrectWordSound");
 const word = document.getElementById("word");
 const underScores = document.getElementById("underScores");
-const hint = document.getElementById("hint");
 
 const keyboardLetters = [];
 const playGame = document.getElementById("playGame");
