@@ -1,43 +1,41 @@
 //variables for game logic
-const score = document.getElementById("score");
-const wrongLetters = document.getElementById("wrongLetters");
-const guessesLeft = document.getElementById("guessesLeft");
-const words = ['vanilla with sprinkles', 'glazed doughnut', 'birthday cake', 'strawberry shortcake', 'oreo cheesecake', 'chocolate chip cookie dough', 'banana cream pie', 
-'apple strudel', 'banana split', 'fudge brownie', 'lemon gumdrops', 'sour patch kids', 'fruit loops', 'fruity pebbles', 'lollipop', 'frosted flakes', 'cinnamon toast crunch',
-'reeses pieces', 'coco puffs'];
-const correctWordSound = document.getElementById("correctWordSound");
-const incorrectWordSound = document.getElementById("incorrectWordSound");
-const word = document.getElementById("word");
-const underScores = document.getElementById("underScores");
+var score; //score for players
+var choiceWords; //array of words
+var choiceCategory; // selected category of words
+var chosenChoiceWord; // selected word
+var guess; //guess made
+var storedGuesses = []; //stored guesses made
+var underScores; //number of spaces in word
+var chances; //how many chances are left
+var correctGuesses; //correct guesses made
 
-const keyboardLetters = [];
-// const playGame = document.getElementById("playGame");
-var playGame;
-var start;
-const loadGame = document.getElementById("loadGame");
-const startOver = document.getElementById("startOver");
 
-const winnerBox = document.getElementById("winnerBox");
-const correctWord = document.getElementById("correctWord");
-const nextWord = document.getElementById("nextWord");
-
-const gameOverBox = document.getElementById("gameOverBox");
-const numberOfChancesLeft = document.getElementById("numberOfChancesLeft");
-
-//load game upon clicking the load button
-
+//cereals, candy, and ice cream
 function playGame() {
-    word = words[Math.floor(Math.random() * words.length)]
-    underScores = word.replace(/_/g, ' ');
-    console.log(word);
+    choiceWords = [
+    ['vanilla with sprinkles', 
+    'birthday cake', 
+    'strawberry shortcake', 
+    'oreo cheesecake', 
+    'chocolate chip cookie dough'],
+    
+    ['popsicle',
+    'lemon gumdrops', 
+    'sour patch kids', 
+    'lollipop',
+    'reeses pieces'],
+
+    ['fruit loops', 
+    'fruity pebbles',  
+    'frosted flakes', 
+    'cinnamon toast crunch',
+     'coco puffs']
+    ];
+    choiceCategory = choiceWords[Math.floor(Math.random() * choiceWords.length)]
+    underScores = choiceWords.replace(/_/g, ' ');
+    console.log(choiceWords);
     console.log(underScores);
 }
-
-function start(){
-    startOver.onclick = playGame();
-}
-
-start();
 // function playTheGame() {
 //     words = Math.floor(Math.random()) * words.length;
 //     underScores = word.replace(/_/g, ' ');
