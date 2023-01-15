@@ -70,12 +70,14 @@ function() {
     playGame();
 }
 
-//Player should have a keyboard to type in the word
 //function to create letter buttons
+    // create an unordered list element called letters. made a for loop to get the length of the alphabet array, then made an id for letters tag called alphabet
+    // created an element called list and made the id be called letters. we'll take the array of letters from the alphabet variable into the 
+    // list element. we appeand the list eleemnt to the letters and the letters appends to the buttons variable made at the top.
 function keyBoard() {
     letters = document.createElement('ul');
     for(var i = 0; i < alphabet.length; i++) {
-        letters.id = 'alphabet';
+    letters.id = 'alphabet';
       list = document.createElement('li');
       list.id = 'letter';
       list.innerHTML = alphabet[i];

@@ -1,5 +1,5 @@
 html {
-    background-color: rgb(7, 138, 155);
+    background-color: pink;
 }
 
 #alphabet {
@@ -16,10 +16,6 @@ html {
     height:30px;
     padding-top:10px;
     background:white;
-    color:base-color;
+    text-align: center;
     border: solid 1px black;
-  }
-
-  #letter li {
-    
   }
