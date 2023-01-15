@@ -75,22 +75,30 @@ function() {
 function keyBoard() {
     letters = document.createElement('ul');
     for(var i = 0; i < alphabet.length; i++) {
-        letters
+        letters.id = 'alphabet';
+      list = document.createElement('li');
+      list.id = 'letter';
+      list.innerHTML = alphabet[i];
+    //   check();
+      buttons.appendChild(letters);
+      letters.appendChild(list);
     }
 }
 
-//Function that evaluates the position of a letter in a word
-function wordLetters(letter) {
-    var letterPos = new Array();
-    for (i = 0; i < chosenChoiceWord.length; i++) {
-      if (chosenChoiceWord[i] === letter)
-        letterPos.push(i);
-        console.log(letter);
-    }
-    return letterPos;
-  }
+keyBoard();
 
-wordLetters();
+//Function that evaluates the position of a letter in a word
+// function wordLetters(letter) {
+//     var letterPos = new Array();
+//     for (i = 0; i < chosenChoiceWord.length; i++) {
+//       if (chosenChoiceWord[i] === letter)
+//         letterPos.push(i);
+//         console.log(letter);
+//     }
+//     return letterPos;
+//   }
+
+// wordLetters();
 
 //The word needs to be loaded as just underscores
 //When the correct letter is clicked on, the letter should replace the underscores, stay in place, and a bell sound should be made
