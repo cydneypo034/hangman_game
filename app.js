@@ -13,6 +13,7 @@ var chances; //how many chances are left
 var correctGuesses; //correct guesses made
 var letter;
 var buttons = document.getElementById("keyboardButtons");
+var currentWord = [];
 
 var playAgain = document.getElementById("reset");
 
@@ -89,24 +90,12 @@ function keyBoard() {
 
 keyBoard();
 
-//Function that evaluates the position of a letter in a word
-// function wordLetters(letter) {
-//     var letterPos = new Array();
+
+// function pushCurrentWord(){
 //     for (i = 0; i < chosenChoiceWord.length; i++) {
-//       if (chosenChoiceWord[i] === letter)
-//         letterPos.push(i);
-//         console.log(letter);
-//     }
-//     return letterPos;
-//   }
+//         currentWord.push("_");
+//         console.log(currentWord);
+//       }
+// }
 
-// wordLetters();
-
-//The word needs to be loaded as just underscores
-//When the correct letter is clicked on, the letter should replace the underscores, stay in place, and a bell sound should be made
-//When the wrong letter is clicked on, the letter should not replace the underscore and a buzzing sound should be made
-//It should show they have x number of chances left after a wrong answer.
-//When the correct word is guessed, add 10 points to the player's score and ask if they want to play another word. A new word will be generated. The score will stay at 10
-//The score will increment by 10 the more words they guess correctly.
-//They will have 10 tries to guess the correct word. When the player misses on all 10 tries, they lose and will be asked if they want to play again. A new word will be generated. No score will be given.
-//If the player guesses all the words correctly by reaching 100 points, they win the game and will be asked if they want to play again and they will be taken back to the original score with a score of 0.
+// pushCurrentWord();
