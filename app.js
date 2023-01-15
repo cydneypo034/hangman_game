@@ -1,5 +1,7 @@
 //variables for game logic
-var alphabet; //letters for the keyboard
+var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+'t', 'u', 'v', 'w', 'x', 'y', 'z']; //letters for the keyboard
 var score; //score for players
 var choiceWords; //array of words
 var choiceCategory; // selected category of words
@@ -10,7 +12,7 @@ var underScores; //number of spaces in word
 var chances; //how many chances are left
 var correctGuesses; //correct guesses made
 var letter;
-var answer;
+var buttons = document.getElementById("keyboardButtons");
 
 var playAgain = document.getElementById("reset");
 
@@ -68,26 +70,27 @@ function() {
     playGame();
 }
 
-//Player should have a keyboard to show the letters to click on and the letters should display the correct ones in the correct spaces
-//function to capture user input; when user presses key on the keyboard
-document.onkeyup = function(event) {
-    if ((event.key >= 65 && event.key <= 90) || event.key >= 97 && event.key <= 122) {
-        alphabet = event.key.toLowerCase();
-        guess = alphabet;
-        letterPos = wordLetters(guess);
-        console.log(letterPos);
+//Player should have a keyboard to type in the word
+//function to create letter buttons
+function keyBoard() {
+    letters = document.createElement('ul');
+    for(var i = 0; i < alphabet.length; i++) {
+        letters
     }
 }
 
+//Function that evaluates the position of a letter in a word
 function wordLetters(letter) {
     var letterPos = new Array();
-    for (i = 0; i < answer.length; i++) {
-      if (answer[i] === letter)
+    for (i = 0; i < chosenChoiceWord.length; i++) {
+      if (chosenChoiceWord[i] === letter)
         letterPos.push(i);
         console.log(letter);
     }
     return letterPos;
   }
+
+wordLetters();
 
 //The word needs to be loaded as just underscores
 //When the correct letter is clicked on, the letter should replace the underscores, stay in place, and a bell sound should be made
