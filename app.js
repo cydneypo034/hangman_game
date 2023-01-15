@@ -9,6 +9,8 @@ var storedGuesses = []; //stored guesses made
 var underScores; //number of spaces in word
 var chances; //how many chances are left
 var correctGuesses; //correct guesses made
+var letter;
+var answer;
 
 var playAgain = document.getElementById("reset");
 
@@ -72,8 +74,20 @@ document.onkeyup = function(event) {
     if ((event.key >= 65 && event.key <= 90) || event.key >= 97 && event.key <= 122) {
         alphabet = event.key.toLowerCase();
         guess = alphabet;
+        letterPos = wordLetters(guess);
+        console.log(letterPos);
     }
 }
+
+function wordLetters(letter) {
+    var letterPos = new Array();
+    for (i = 0; i < answer.length; i++) {
+      if (answer[i] === letter)
+        letterPos.push(i);
+        console.log(letter);
+    }
+    return letterPos;
+  }
 
 //The word needs to be loaded as just underscores
 //When the correct letter is clicked on, the letter should replace the underscores, stay in place, and a bell sound should be made
