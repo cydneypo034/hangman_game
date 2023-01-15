@@ -1,7 +1,5 @@
 //variables for game logic
-var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-        'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
-        't', 'u', 'v', 'w', 'x', 'y', 'z']; //letters for the keyboard
+var alphabet; //letters for the keyboard
 var score; //score for players
 var choiceWords; //array of words
 var choiceCategory; // selected category of words
@@ -68,9 +66,16 @@ function() {
     playGame();
 }
 
+//Player should have a keyboard to show the letters to click on and the letters should display the correct ones in the correct spaces
+//function to capture user input; when user presses key on the keyboard
+document.onkeyup = function(event) {
+    if ((event.key >= 65 && event.key <= 90) || event.key >= 97 && event.key <= 122) {
+        alphabet = event.key.toLowerCase();
+        guess = alphabet;
+    }
+}
 
 //The word needs to be loaded as just underscores
-//Player should have a keyboard to show the letters to click on and the letters should display the correct ones in the correct spaces
 //When the correct letter is clicked on, the letter should replace the underscores, stay in place, and a bell sound should be made
 //When the wrong letter is clicked on, the letter should not replace the underscore and a buzzing sound should be made
 //It should show they have x number of chances left after a wrong answer.
