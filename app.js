@@ -82,7 +82,7 @@ function keyBoard() {
       list = document.createElement('li');
       list.id = 'letter';
       list.innerHTML = alphabet[i];
-    //   check();
+        checkButton();
       buttons.appendChild(letters);
       letters.appendChild(list);
     }
@@ -90,12 +90,18 @@ function keyBoard() {
 
 keyBoard();
 
-
-// function pushCurrentWord(){
-//     for (i = 0; i < chosenChoiceWord.length; i++) {
-//         currentWord.push("_");
-//         console.log(currentWord);
-//       }
-// }
-
-// pushCurrentWord();
+function checkButton() {
+    list.onclick = function() {
+        var guess = (this.innerHTML);
+        for (var i = 0; i < chosenChoiceWord.length; i++) {
+        if(chosenChoiceWord[i]=== guess) {
+            storedGuesses[i].innerHTML = guess;
+            correctGuesses += 1;
+        }
+        var j = (chosenChoiceWord.indexOf(guess));
+        if (j === -1) {
+            chances -= 1;
+            }
+        }
+    }
+}
