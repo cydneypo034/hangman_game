@@ -91,6 +91,9 @@ function keyBoard() {
 
 keyBoard();
 
+//adding a spaceboard button to keyboard to aid with some words with spaces.
+
+// this function is checking to see if the correct button was pressed on the keyboard. 
 function checkButton() {
     list.onclick = function() {
         var guess = this.innerHTML;
@@ -114,6 +117,7 @@ function checkButton() {
 // this function shows what happens when the guess gets made. when taking the holder id for the word, we need to create
 // an element to have the correct letters be in a list. we then make a for loop that sets an id value of the correctLetter element
 // and has the guess be in a list. if the index of the chosen word has "-" in it, then enter the correct guess in the space.
+// the stored guess from the checkButton function is pushed into the list element of guess, then gthe guess gets appended to the spaceforword id.
 function resultingWord() {
     spaceForWord = document.getElementById('wordHolder');
     correctLetter = document.createElement('ul');
