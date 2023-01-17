@@ -1,3 +1,4 @@
+window.onload = function() {
 //variables for game logic
 var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
@@ -10,13 +11,11 @@ var storedGuesses = []; //stored guesses made [guesses]
 var underScores; //number of spaces in word [space]
 var chances; //how many chances are left [lives]
 var correctGuesses; //correct guesses made [counter]
-var currentWord = [];
-var score; //score for players
-var letter;
 
 //get elements
 var buttons = document.getElementById("keyboardButtons");
 var playAgain = document.getElementById("reset");
+var chancesToGuess = document.getElementById("chances");
 
 //cereals, candy, and ice cream categories
 //if chosen category is any word from a certain array, have corect category display in html
@@ -34,23 +33,23 @@ function selectCategory() {
 //when the random word is picked from the chosen category, replace the letters with underscores 
 function playGame() {
     choiceWords = [
-    ['vanilla with sprinkles', 
-    'birthday cake', 
-    'strawberry shortcake', 
-    'oreo cheesecake', 
-    'chocolate chip cookie dough'],
+    ['vanilla', 
+    'birthdaycake', 
+    'strawberry', 
+    'oreocheesecake', 
+    'chocolatechip'],
     
-    ['hershey kisses',
-    'lemon gumdrops', 
-    'sour patch kids', 
+    ['hersheykisses',
+    'lemongumdrops', 
+    'sourstraws', 
     'lollipop',
-    'reeses pieces'],
+    'reesespieces'],
 
-    ['fruit loops', 
-    'fruity pebbles',  
-    'frosted flakes', 
-    'cinnamon toast crunch',
-     'coco puffs']
+    ['fruitloops', 
+    'fruitypebbles',  
+    'frostedflakes', 
+    'applejacks',
+     'cocopuffs']
     ];
     choiceCategory = choiceWords[Math.floor(Math.random() * choiceWords.length)];
     chosenChoiceWord = choiceCategory[Math.floor(Math.random() * choiceCategory.length)]
@@ -58,10 +57,13 @@ function playGame() {
     // console.log(chosenChoiceWord);
     console.log(chosenChoiceWord);
     selectCategory();
+    keyBoard();
     chances = 10;
     storedGuesses = [];
     correctGuesses = 0;
     guess = 0;
+    resultingWord();
+    chancesLeft();
 }
 
 playGame();
@@ -69,8 +71,10 @@ playGame();
 //Have player click play again to start a new game and activate playGame function for a new word
 playAgain.onclick =
 function() {
-    playGame();
-}
+        correctLetter.parentNode.removeChild(correctLetter);
+        letters.parentNode.removeChild(letters);
+        playGame();   
+    }
 
 //function to create letter buttons
     // create an unordered list element called letters. made a for loop to get the length of the alphabet array, then made an id for letters tag called alphabet
@@ -89,7 +93,7 @@ function keyBoard() {
     }
 }
 
-keyBoard();
+// keyBoard();
 
 //adding a spaceboard button to keyboard to aid with some words with spaces.
 
@@ -109,6 +113,9 @@ function checkButton() {
         var wordBeingGuessed = (chosenChoiceWord.indexOf(guess));
         if (wordBeingGuessed === -1) {
             chances -= 1;
+            chancesLeft();
+            } else {
+                chancesLeft();
             }
         }
     }
@@ -140,4 +147,18 @@ function resultingWord() {
     }
   }
 
-resultingWord();
+// resultingWord();
+
+function chancesLeft() {
+    chancesToGuess.innerHTML = "You have " + chances + " chances";
+    for (var i = 0; i < storedGuesses.length; i++) {
+        if (correctGuesses + underScores === storedGuesses.length) {
+          chancesToGuess.innerHTML = "You Win!";
+        }
+      } if (chances < 1) {
+        chancesToGuess.innerHTML = "Game Over";
+    }
+  }
+
+// chancesLeft();
+}
