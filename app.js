@@ -2,19 +2,20 @@
 var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
 't', 'u', 'v', 'w', 'x', 'y', 'z']; //letters for the keyboard
-var score; //score for players
-var choiceWords; //array of words
-var choiceCategory; // selected category of words
-var chosenChoiceWord; // selected word
-var guess; //guess made
-var storedGuesses = []; //stored guesses made
-var underScores; //number of spaces in word
-var chances; //how many chances are left
-var correctGuesses; //correct guesses made
-var letter;
-var buttons = document.getElementById("keyboardButtons");
+var choiceWords; //array of words [categories]
+var choiceCategory; // selected category of words [chosenCategory]
+var chosenChoiceWord; // selected word [word]
+var guess; //guess made [guess]
+var storedGuesses = []; //stored guesses made [guesses]
+var underScores; //number of spaces in word [space]
+var chances; //how many chances are left [lives]
+var correctGuesses; //correct guesses made [counter]
 var currentWord = [];
+var score; //score for players
+var letter;
 
+//get elements
+var buttons = document.getElementById("keyboardButtons");
 var playAgain = document.getElementById("reset");
 
 //cereals, candy, and ice cream categories
@@ -82,7 +83,7 @@ function keyBoard() {
       list = document.createElement('li');
       list.id = 'letter';
       list.innerHTML = alphabet[i];
-        checkButton();
+    checkButton();
       buttons.appendChild(letters);
       letters.appendChild(list);
     }
@@ -92,16 +93,47 @@ keyBoard();
 
 function checkButton() {
     list.onclick = function() {
-        var guess = (this.innerHTML);
+        var guess = this.innerHTML;
+        this.setAttribute("class", "active");
+        this.onclick = null;
         for (var i = 0; i < chosenChoiceWord.length; i++) {
         if(chosenChoiceWord[i]=== guess) {
             storedGuesses[i].innerHTML = guess;
             correctGuesses += 1;
+            console.log(storedGuesses);
+            console.log(correctGuesses);
         }
-        var j = (chosenChoiceWord.indexOf(guess));
-        if (j === -1) {
+        var wordBeingGuessed = (chosenChoiceWord.indexOf(guess));
+        if (wordBeingGuessed === -1) {
             chances -= 1;
             }
         }
     }
 }
+
+// this function shows what happens when the guess gets made. when taking the holder id for the word, we need to create
+// an element to have the correct letters be in a list. we then make a for loop that sets an id value of the correctLetter element
+// and has the guess be in a list. if the index of the chosen word has "-" in it, then enter the correct guess in the space.
+function resultingWord() {
+    spaceForWord = document.getElementById('wordHolder');
+    correctLetter = document.createElement('ul');
+
+    for (var i = 0; i < chosenChoiceWord.length; i++) {
+      correctLetter.setAttribute('id', 'my-word');
+      guess = document.createElement('li');
+      guess.setAttribute('class', 'guess');
+      if (chosenChoiceWord[i] === "-") {
+        guess.innerHTML = "-";
+        underScores = 1;
+        console.log(guess);
+      } else {
+        guess.innerHTML = "_";
+      }
+
+      storedGuesses.push(guess);
+      spaceForWord.appendChild(correctLetter);
+      correctLetter.appendChild(guess);
+    }
+  }
+
+resultingWord();
