@@ -2,42 +2,74 @@ html {
     background-color: pink;
 }
 
+body {
+    height: 100%;
+    text-align: center;
+    font-size: 18px;
+}
+
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
 #alphabet {
-    margin:15px auto;
-    padding:0;
-    max-width:900px;
+    margin: 15px auto;
+    padding: 0;
+    max-width: 900px;
 }
 
 #alphabet li {
-    float:left;
+    float: left;
     margin: 0 10px 10px 0;
-    list-style:none;
-    width:35px;
-    height:30px;
-    padding-top:10px;
-    background:white;
+    list-style: none;
+    width: 35px;
+    height: 30px;
+    padding-top: 10px;
+    background: white;
     text-align: center;
     border: solid 1px black;
-  }
+}
 
-  #my-word {
+#my-word {
     margin: 0;
     display: block;
     padding: 0;
-    display:block;
-  }
-  
-  #my-word li {
+    display: block;
+}
+
+#my-word li {
     position: relative;
     list-style: none;
     margin: 0;
-    display: inline-block;
+    display: inline;
     padding: 0 10px;
-    font-size:1.6em;
-  }
+    font-size: 1.6em;
+}
 
-  #chances{
-    font-size:1.6em;
-    text-align:center;
-    display:block;
-  }
+#chances {
+    font-size: 1.6em;
+    text-align: center;
+    display: block;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;
+    margin: 5px 0;
+}
+
+h1 {
+    font-size: 2.6em;
+}
+
+h2 {
+    font-size: 1.6em;
+}
+
+p {
+    font-size: 1.6em;
+}

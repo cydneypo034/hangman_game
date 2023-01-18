@@ -136,7 +136,7 @@ function resultingWord() {
       if (chosenChoiceWord[i] === "-") {
         guess.innerHTML = "-";
         underScores = 1;
-        console.log(guess);
+        console.log(guess[i]);
       } else {
         guess.innerHTML = "_";
       }
@@ -154,6 +154,7 @@ function chancesLeft() {
     for (var i = 0; i < storedGuesses.length; i++) {
         if (correctGuesses + underScores === storedGuesses.length) {
           chancesToGuess.innerHTML = "You Win!";
+        console.log(chancesToGuess);
         }
       } if (chances < 1) {
         chancesToGuess.innerHTML = "Game Over";
