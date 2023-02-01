@@ -37,6 +37,9 @@ choiceWords = [
      'cocopuffs']
     ];
     choiceCategory = choiceWords[Math.floor(Math.random() * choiceWords.length)];
+    chosenChoiceWord = choiceCategory[Math.floor(Math.random() * choiceCategory.length)]
+    chosenChoiceWord = chosenChoiceWord.replace(/\s/g, ' ');
+
 
 //cereals, candy, and ice cream categories
 //if chosen category is any word from a certain array, have corect category display in html
@@ -49,4 +52,4 @@ function selectCategory() {
         category.innerHTML = "Cereals";
     }
 }
-console.log(choiceCategory);
+console.log(chosenChoiceWord);
