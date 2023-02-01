@@ -13,14 +13,8 @@ var correctGuesses; //correct guesses made [counter]
 
 //get elements
 var buttons = document.getElementById("keyboardButtons");
-var playAgain = document.getElementById("reset").onclick = function playAgain() {
-    correctLetter.parentNode.removeChild(correctLetter);
-        letters.parentNode.removeChild(letters);
-        playGame();
-};
+var playAgain = document.getElementById("reset")
 var chancesToGuess = document.getElementById("chances");
-
-
 
 //cereals, candy, and ice cream categories
 //if chosen category is any word from a certain array, have corect category display in html
@@ -34,38 +28,99 @@ function selectCategory() {
     }
 }
 
-function playGame(){
+//this function is the play game logic for when a player starts the game
+//when the random word is picked from the chosen category, replace the letters with underscores 
+function playGame() {
     choiceWords = [
-        ['vanilla', 
-        'birthdaycake', 
-        'strawberry', 
-        'oreocheesecake', 
-        'chocolatechip'],
-        
-        ['hersheykisses',
-        'lemongumdrops', 
-        'sourstraws', 
-        'lollipop',
-        'reesespieces'],
+    ['vanilla', 
+    'birthdaycake', 
+    'strawberry', 
+    'oreocheesecake', 
+    'chocolatechip'],
     
-        ['fruitloops', 
-        'fruitypebbles',  
-        'frostedflakes', 
-        'applejacks',
-         'cocopuffs']
-        ];
-        choiceCategory = choiceWords[Math.floor(Math.random() * choiceWords.length)];
-        chosenChoiceWord = choiceCategory[Math.floor(Math.random() * choiceCategory.length)]
-        chosenChoiceWord = chosenChoiceWord.replace(/\s/g, ' ');
-        selectCategory();
-        chances = 10;
-        storedGuesses = [];
-        correctGuesses = 0;
-        guess = 0;
+    ['hersheykisses',
+    'lemongumdrops', 
+    'sourstraws', 
+    'lollipop',
+    'reesespieces'],
+
+    ['fruitloops', 
+    'fruitypebbles',  
+    'frostedflakes', 
+    'applejacks',
+     'cocopuffs']
+    ];
+    choiceCategory = choiceWords[Math.floor(Math.random() * choiceWords.length)];
+    chosenChoiceWord = choiceCategory[Math.floor(Math.random() * choiceCategory.length)]
+    chosenChoiceWord = chosenChoiceWord.replace(/\s/g, ' ');
+    // console.log(chosenChoiceWord);
+    console.log(chosenChoiceWord);
+    selectCategory();
+    keyBoard();
+    chances = 10;
+    storedGuesses = [];
+    correctGuesses = 0;
+    guess = 0;
+    resultingWord();
+    chancesLeft();
 }
 
 playGame();
-console.log(chosenChoiceWord);
+
+//Have player click play again to start a new game and activate playGame function for a new word
+playAgain.onclick =
+function() {
+        correctLetter.parentNode.removeChild(correctLetter);
+        letters.parentNode.removeChild(letters);
+        playGame();   
+    }
+
+//function to create letter buttons
+    // create an unordered list element called letters. made a for loop to get the length of the alphabet array, then made an id for letters tag called alphabet
+    // created an element called list and made the id be called letters. we'll take the array of letters from the alphabet variable into the 
+    // list element. we appeand the list eleemnt to the letters and the letters appends to the buttons variable made at the top.
+function keyBoard() {
+    letters = document.createElement('ul');
+    for(var i = 0; i < alphabet.length; i++) {
+    letters.id = 'alphabet';
+      list = document.createElement('li');
+      list.id = 'letter';
+      list.innerHTML = alphabet[i];
+    checkButton();
+      buttons.appendChild(letters);
+      letters.appendChild(list);
+    //   console.log(list[i])
+    }
+}
+
+// keyBoard();
+
+//adding a spaceboard button to keyboard to aid with some words with spaces.
+
+// this function is checking to see if the correct button was pressed on the keyboard. 
+function checkButton() {
+    list.onclick = function() {
+        var guess = (this.innerHTML);
+        this.setAttribute("class", "active");
+        this.onclick = null;
+        for (var i = 0; i < chosenChoiceWord.length; i++) {
+        if(chosenChoiceWord[i]=== guess) {
+            storedGuesses[i].innerHTML = guess;
+            correctGuesses += 1;
+            // console.log(storedGuesses);
+            // console.log(correctGuesses);
+        }
+        var wordBeingGuessed = chosenChoiceWord.indexOf(guess);
+        if (wordBeingGuessed === -1) {
+            chances -= 1;
+            chancesLeft();
+            } 
+            else {
+                chancesLeft();
+            }
+        }
+    }
+}
 
 // this function shows what happens when the guess gets made. when taking the holder id for the word, we need to create
 // an element to have the correct letters be in a list. we then make a for loop that sets an id value of the correctLetter element
@@ -93,20 +148,27 @@ function resultingWord() {
     }
   }
 
-  //function to create letter buttons
-    // create an unordered list element called letters. made a for loop to get the length of the alphabet array, then made an id for letters tag called alphabet
-    // created an element called list and made the id be called letters. we'll take the array of letters from the alphabet variable into the 
-    // list element. we appeand the list eleemnt to the letters and the letters appends to the buttons variable made at the top.
-function keyBoard() {
-    letters = document.createElement('ul');
-    for(var i = 0; i < alphabet.length; i++) {
-    letters.id = 'alphabet';
-      list = document.createElement('li');
-      list.id = 'letter';
-      list.innerHTML = alphabet[i];
-    checkButton();
-      buttons.appendChild(letters);
-      letters.appendChild(list);
-    //   console.log(list[i])
-    }
-}
+// resultingWord();
+    function chancesLeft() {
+        for (var i = 0; i < storedGuesses.length; i++) {
+            if (correctGuesses + underScores === storedGuesses.length) {
+              chancesToGuess.innerHTML = "You Win!";
+            console.log(correctGuesses);
+            }
+          } 
+        if(chances > 1) {
+            chancesToGuess.innerHTML = "You have " + chances + " chances!";
+        }
+        if(chances === 1) {
+            chancesToGuess.innerHTML = "You have " + chances + " chance!";
+        }
+        // else {
+        //     chancesToGuess.innerHTML = "Game Over!";
+        // }
+      }
+// chancesLeft();
+
+//what to solve : the chances decreases down to 1 instead of starting from 10 and going down for each wrong guess.
+// so, if i click the wrong letter, it immediately goes to one chance and on some of them, it goes immediately to game over which is wrong.
+//also there's no logic for what to do when they win. sometimes it'll say three chances.
+//it won't let you select letters once its game over and it doesn't notfiy you when you hit a letter already
