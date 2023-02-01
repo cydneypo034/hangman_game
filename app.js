@@ -16,29 +16,37 @@ var buttons = document.getElementById("keyboardButtons");
 var playAgain = document.getElementById("reset");
 var chancesToGuess = document.getElementById("chances");
 
-
-choiceWords = [
-    ['vanilla', 
-    'birthdaycake', 
-    'strawberry', 
-    'oreocheesecake', 
-    'chocolatechip'],
+function playGame(){
+    choiceWords = [
+        ['vanilla', 
+        'birthdaycake', 
+        'strawberry', 
+        'oreocheesecake', 
+        'chocolatechip'],
+        
+        ['hersheykisses',
+        'lemongumdrops', 
+        'sourstraws', 
+        'lollipop',
+        'reesespieces'],
     
-    ['hersheykisses',
-    'lemongumdrops', 
-    'sourstraws', 
-    'lollipop',
-    'reesespieces'],
+        ['fruitloops', 
+        'fruitypebbles',  
+        'frostedflakes', 
+        'applejacks',
+         'cocopuffs']
+        ];
+        choiceCategory = choiceWords[Math.floor(Math.random() * choiceWords.length)];
+        chosenChoiceWord = choiceCategory[Math.floor(Math.random() * choiceCategory.length)]
+        chosenChoiceWord = chosenChoiceWord.replace(/\s/g, ' ');
+        selectCategory();
+        chances = 10;
+        storedGuesses = [];
+        correctGuesses = 0;
+        guess = 0;
+}
 
-    ['fruitloops', 
-    'fruitypebbles',  
-    'frostedflakes', 
-    'applejacks',
-     'cocopuffs']
-    ];
-    choiceCategory = choiceWords[Math.floor(Math.random() * choiceWords.length)];
-    chosenChoiceWord = choiceCategory[Math.floor(Math.random() * choiceCategory.length)]
-    chosenChoiceWord = chosenChoiceWord.replace(/\s/g, ' ');
+playGame();
 
 
 //cereals, candy, and ice cream categories
